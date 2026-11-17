@@ -1,0 +1,121 @@
+main {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 48px 20px 64px;
+}
+
+header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6375;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: #16141c;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: -0.04em;
+}
+
+header p:last-child,
+.empty {
+  color: #5c5666;
+}
+
+form,
+section {
+  background: #fff;
+  border: 1px solid #e6e3ea;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  font-weight: 400;
+  padding: 10px 12px;
+  border: 1px solid #d7d3dc;
+  border-radius: 10px;
+  background: #fff;
+}
+
+button {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #3b2a63;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  color: #9b1c1c;
+}
+
+section {
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.member-grid {
+  display: grid;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.member-grid-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr 1fr 0.8fr 0.9fr;
+  gap: 12px;
+  align-items: center;
+  min-width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f7f5f9;
+  font-size: 14px;
+}
+
+.member-grid-head {
+  background: transparent;
+  padding: 0 12px 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6375;
+}
