@@ -8,6 +8,15 @@ header {
   margin-bottom: 28px;
 }
 
+.club-image {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
 .eyebrow {
   margin: 0 0 8px;
   font-size: 13px;
@@ -78,6 +87,198 @@ button {
   cursor: pointer;
 }
 
+.home {
+  width: min(1040px, 100%);
+  padding-top: 24px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 420px;
+}
+
+.home .club-image {
+  height: 460px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.hero-copy {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 72px 32px 28px;
+  background: linear-gradient(transparent, rgba(10, 28, 24, 0.82));
+  color: #fff;
+}
+
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy p {
+  color: #fff;
+}
+
+.hero-copy .eyebrow {
+  margin-bottom: 6px;
+}
+
+.hero-copy p:last-child {
+  max-width: 36rem;
+  margin-top: 8px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlights li {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #e6e3ea;
+  color: #3d4a44;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.home-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.home-card {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #e6e3ea;
+  border-radius: 16px;
+  background: #fff;
+  color: #16141c;
+  text-align: left;
+  justify-self: stretch;
+}
+
+.home-card strong {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.home-card span {
+  color: #5c5666;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.home-card.primary {
+  background: #1c4a38;
+  border-color: #1c4a38;
+  color: #fff;
+}
+
+.home-card.primary span {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+@media (max-width: 720px) {
+  .home {
+    padding-top: 12px;
+  }
+
+  .hero,
+  .home .club-image {
+    min-height: 320px;
+    height: 320px;
+  }
+
+  .hero-copy {
+    padding: 48px 18px 18px;
+  }
+
+  .home-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.secondary {
+  background: #fff;
+  color: #3b2a63;
+  border: 2px solid #3b2a63;
+}
+
+.text-link {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #3b2a63;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.text-link.light {
+  color: #fff;
+}
+
+.sign-in-page {
+  width: 100%;
+  min-height: 100svh;
+  margin: 0;
+  padding: 48px 20px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sign-in-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(8, 24, 20, 0.45), rgba(8, 24, 20, 0.72));
+  pointer-events: none;
+}
+
+.sign-in-panel {
+  position: relative;
+  width: min(440px, 100%);
+  color: #fff;
+}
+
+.sign-in-panel .eyebrow,
+.sign-in-panel h1,
+.sign-in-panel > p {
+  color: #fff;
+}
+
+.sign-in-panel > p {
+  margin: 8px 0 20px;
+}
+
+.sign-in-panel form {
+  background: rgba(255, 255, 255, 0.96);
+  color: #16141c;
+}
+
 .error {
   margin: 0;
   color: #9b1c1c;
@@ -118,4 +319,108 @@ h2 {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #6b6375;
+}
+
+.schedule-list-row {
+  grid-template-columns: 1.2fr 1.6fr 0.8fr 0.8fr;
+}
+
+.enrolled-row {
+  grid-template-columns: 1.2fr 1.6fr 1fr 0.8fr 0.9fr;
+  min-width: 640px;
+}
+
+.booking-row {
+  grid-template-columns: 1.1fr 1.5fr 0.8fr 0.9fr 1.2fr;
+  min-width: 760px;
+}
+
+.confirm,
+.notice {
+  margin-top: 16px;
+}
+
+.confirm {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f7f5f9;
+}
+
+.notice {
+  color: #1c4a38;
+  font-weight: 600;
+}
+
+.thanks p {
+  margin: 8px 0 0;
+  color: #5c5666;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tab {
+  margin: 0;
+  background: #fff;
+  color: #3b2a63;
+  border: 1px solid #d7d3dc;
+}
+
+.tab.active {
+  background: #1c4a38;
+  color: #fff;
+  border-color: #1c4a38;
+}
+
+.schedule {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 96px repeat(4, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+  min-width: 720px;
+  align-items: stretch;
+}
+
+.schedule-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6375;
+  align-items: end;
+}
+
+.slot {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f7f5f9;
+  font-size: 14px;
+  font-weight: 400;
+  color: #5c5666;
+}
+
+.slot button {
+  margin-top: 0;
+}
+
+.slot button:disabled {
+  background: #d7d3dc;
+  color: #6b6375;
+  cursor: default;
+}
+
+.booked {
+  color: #3b2a63;
+  font-weight: 700;
 }
