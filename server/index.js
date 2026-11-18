@@ -1,7 +1,14 @@
 import { createServer } from 'node:http'
-import { mkdirSync } from 'node:fs'
+import { createReadStream, existsSync, mkdirSync, statSync } from 'node:fs'
+import { extname, join, normalize, sep } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { DatabaseSync } from 'node:sqlite'
 import { COURTS, HOURLY_RATE, MAX_PLAYERS, SLOTS } from '../src/slots.js'
+
+const distDir = fileURLToPath(new URL('../dist/', import.meta.url))
+const distRoot = distDir.endsWith(sep) ? distDir : `${distDir}${sep}`
+const port = Number(process.env.PORT) || 3001
+const host = process.env.HOST || '0.0.0.0'
 
 const dbPath = new URL('../data/club.db', import.meta.url)
 mkdirSync(new URL('../data/', import.meta.url), { recursive: true })
@@ -32,6 +39,46 @@ db.exec(`
 function send(response, status, body) {
   response.writeHead(status, { 'Content-Type': 'application/json' })
   response.end(JSON.stringify(body))
+}
+
+const mimeTypes = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.json': 'application/json',
+  '.woff2': 'font/woff2',
+}
+
+function siteFile(pathname) {
+  const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '')
+  const filePath = normalize(join(distRoot, relative))
+  if (filePath !== distRoot.slice(0, -1) && !filePath.startsWith(distRoot)) return null
+  return filePath
+}
+
+function serveFile(response, filePath) {
+  response.writeHead(200, {
+    'Content-Type': mimeTypes[extname(filePath)] || 'application/octet-stream',
+  })
+  createReadStream(filePath).pipe(response)
+}
+
+function serveSite(response, pathname) {
+  const filePath = siteFile(pathname)
+  if (filePath && existsSync(filePath) && statSync(filePath).isFile()) {
+    serveFile(response, filePath)
+    return true
+  }
+  const indexPath = join(distDir, 'index.html')
+  if (!existsSync(indexPath)) return false
+  serveFile(response, indexPath)
+  return true
 }
 
 function readBody(request) {
@@ -310,10 +357,14 @@ const server = createServer(async (request, response) => {
       return
     }
 
+    if (request.method === 'GET' && !url.pathname.startsWith('/api') && serveSite(response, url.pathname)) {
+      return
+    }
+
     send(response, 404, { error: 'Not found.' })
   } catch (error) {
     send(response, 500, { error: error.message || 'Server error.' })
   }
 })
 
-server.listen(3001, '127.0.0.1')
+server.listen(port, host)
