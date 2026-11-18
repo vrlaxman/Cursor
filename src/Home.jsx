@@ -25,10 +25,6 @@ export default function Home({ onNavigate }) {
           <strong>Sign in</strong>
           <span>See open slots and schedule a court</span>
         </button>
-        <button type="button" className="home-card" onClick={() => onNavigate('admin')}>
-          <strong>Admin</strong>
-          <span>Review members and who is booked to play</span>
-        </button>
       </div>
     </main>
   )
