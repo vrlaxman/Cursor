@@ -88,7 +88,7 @@ export default function Booking({ member, onNavigate }) {
     <main>
       <header>
         <button type="button" className="text-link" onClick={() => onNavigate('home')}>
-          Back to home
+          Home
         </button>
         <h1>Book a court</h1>
         <p>

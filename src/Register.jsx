@@ -60,10 +60,10 @@ export default function Register({ onNavigate }) {
     <main>
       <header>
         <button type="button" className="text-link" onClick={() => onNavigate('home')}>
-          Back to home
+          Home
         </button>
         <h1>Register</h1>
-        <p>Create a Lake Pickle Club membership.</p>
+        <p>Create a Desi Pickle Club membership.</p>
       </header>
 
       <form onSubmit={handleSubmit}>

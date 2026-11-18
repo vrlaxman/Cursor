@@ -46,7 +46,7 @@ export default function Admin({ onNavigate }) {
     <main>
       <header>
         <button type="button" className="text-link" onClick={() => onNavigate('home')}>
-          Back to home
+          Home
         </button>
         <h1>Admin</h1>
         <p>Enrollment and who is scheduled to play.</p>

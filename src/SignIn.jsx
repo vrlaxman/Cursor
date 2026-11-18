@@ -25,9 +25,9 @@ export default function SignIn({ onNavigate, onSignedIn }) {
     <main className="sign-in-page" style={{ backgroundImage: `url(${clubImage})` }}>
       <div className="sign-in-panel">
         <button type="button" className="text-link light" onClick={() => onNavigate('home')}>
-          Back to home
+          Home
         </button>
-        <p className="eyebrow">Lake Pickle Club</p>
+        <p className="eyebrow">Desi Pickle Club</p>
         <h1>Sign in</h1>
         <p>Use the email and password from your membership to book a court.</p>
         <form onSubmit={handleSubmit}>

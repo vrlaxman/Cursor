@@ -11,16 +11,10 @@ export default function Home({ onNavigate }) {
         />
         <div className="hero-copy">
           <p className="eyebrow">Lakeside pickleball</p>
-          <h1>Lake Pickle Club</h1>
+          <h1>Desi Pickle Club</h1>
           <p>Four courts by the water. Join, sign in, and reserve a time.</p>
         </div>
       </section>
-
-      <ul className="highlights">
-        <li>4 courts</li>
-        <li>4 players a slot</li>
-        <li>2-hour slots, $60 an hour</li>
-      </ul>
 
       <div className="home-actions">
         <button type="button" className="home-card primary" onClick={() => onNavigate('register')}>
